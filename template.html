@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>LitExpress</title>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <link rel="stylesheet" href="http://y92936ku.bget.ru/views/css/normalize.min.css">
+  <link rel="stylesheet" href="http://y92936ku.bget.ru/views/css/style.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700&subset=latin,cyrillic'>
+</head>
+<body>
+    <header>
+    <div class="container">
+      <div class="logo-quotation">
+        <div class="logo-header">
+            <a href="/">LitExpress</a>
+        </div>
+        <div class="quotation">
+          <blockquote></blockquote>
+          <div class="author-quotation">
+              <cite></cite>
+          </div>
+        </div>
+      </div>
+      <div class="search-contacts">
+        <div class="search">
+          <input type="search" name="search" placeholder="Быстрый поиск">
+        </div>
+        <div class="contacts-header">
+          <div class="telephone">
+            <a href="tel: 8-934-933-83-55">Телефон: 8-934-933-83-55</a>
+            <a href="" class="call">Заказать звонок</a>
+          </div>
+          <div class="e-mail">
+            <span>E-mail: litexpress@gmail.com</span>
+            <a href="/feedback" class="write">Написать нам</a>
+          </div>
+        </div>
+      </div>
+      <div class="cart">
+          <a href="/cart">Корзина: <span id="count"></span></a>
+      </div>
+      <div class="user">
+          <form action="/user/login" name="login" method="post">
+            <input type="submit" value="Войти">
+            <div class='identify'>
+                <input type="e-mail" name="e-mail" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Пароль" required>
+            </div>
+          </form>
+            <div class="user-links">
+                <a href="/user/registration" class="registration">Регистрация</a>
+                <a href="/user/forgot" class="forgot">Забыли пароль?</a>
+            </div>
+      </div>
+      <nav class="header-navigation">
+        <ul>
+          <li>
+            <a href="/">Главная</a>
+          </li>
+          <li>
+            <a href="/catalog">Каталог</a>
+          </li>
+          <li>
+            <a href="/news">Новости</a>
+          </li>
+          <li>
+            <a href="/delivery">Доставка и оплата</a>
+          </li>
+          <li>
+            <a href="/about">О компании</a>
+          </li>
+          <li>
+            <a href="/contacts">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section class="main-categories">
+        <div class="category">
+          <a href="catalog/<?= $category['eng']?>">
+            <img src="views/img/<?= $category['image']?>" width="200" height="150" alt=""><br>
+            <span></span>
+          </a>
+        </div>
+      </section>
+      <section class="news">
+        <h2>Последние новости</h2>
+        <article class="news-item">
+          <h3></h3>
+          <span></span>
+          <p class="news-content"></p>
+        </article>
+        <a href="news">Все новости</a>
+      </section>
+    </div>
+  </main>
+      <footer>
+    <div class="container">
+      <div class="copyright">
+        <div class="logo-footer">
+            <a href="/">LitExpress</a>
+        </div>
+        <p>
+          &copy; 2016 ЛитЭкспресс<br>
+          Все права защищены
+        </p>
+      </div>
+      <nav class="footer-navigation">
+        <ul>
+          <li>
+            <a href="/">Главная</a>
+          </li>
+          <li>
+            <a href="/catalog">Каталог</a>
+          </li>
+          <li>
+            <a href="/delivery">Доставка и оплата</a>
+          </li>
+          <li>
+            <a href="/about">О компании</a>
+          </li>
+          <li>
+            <a href="/news">Новости</a>
+          </li>
+          <li>
+            <a href="/contacts">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="contacts-footer">
+        <a href="tel: 8-934-933-83-55">Телефон: 8-934-933-83-55</a>
+        <span>E-mail: litexpress@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+<script></script>
+</body>
+</html>

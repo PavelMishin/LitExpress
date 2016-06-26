@@ -1,0 +1,110 @@
+body {
+  min-width: min-content;
+  width: 66%;
+  margin: 20px auto;
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 90%;
+  min-width: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+header a {
+    padding: 10px;
+}
+
+table {
+    border: 3px solid black;
+    border-collapse:  collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+td:nth-child(1n+6) {
+    text-align: center;
+}
+
+.pages {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 33%;
+    width: 66%;
+}
+
+.pages li {
+    display: inline-block;
+}
+
+.pages a {
+    display: block;
+    padding: 10px;
+    margin: 2px;
+}
+
+
+form > * {
+    margin: 8px 0;  
+}
+
+form[name="capacity-form"] input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+}
+
+form[name="add-form"] {
+    display: flex;
+    flex-direction: column;
+}
+
+form[name="add-form"] input {
+    width: 400px;
+}
+
+main {
+    position: relative;
+}
+
+.hidden {
+    display: none;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    width: 85%;
+    
+}
+
+.hidden table {
+    background-color: #f7f3ec;
+    width: 98%;
+}
+
+.close {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+}
+
+.display {
+    display: block;
+}
