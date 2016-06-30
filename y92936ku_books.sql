@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 26 2016 г., 18:37
+-- Время создания: Июн 30 2016 г., 08:57
 -- Версия сервера: 5.7.12-5-beget-log
 -- Версия PHP: 5.6.20
 
@@ -223,6 +223,44 @@ INSERT INTO `categories` (`id`, `rus`, `image`, `eng`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `comments`
+--
+-- Создание: Июн 27 2016 г., 13:04
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `date` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `book_id`, `user_id`, `comment`, `date`) VALUES
+(1, 34, 3, 'Хорошая книга!', '28-06-2016 12:30'),
+(17, 139, 1, 'Чичиков жив!', '28-06-2016 13:03'),
+(18, 139, 1, 'Гоголь жив!', '28-06-2016 13:11'),
+(19, 136, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '28-06-2016 17:34'),
+(20, 136, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '28-06-2016 17:36'),
+(21, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!', '28-06-2016 17:39'),
+(22, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!', '28-06-2016 17:39'),
+(23, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!\n\n', '28-06-2016 17:40'),
+(24, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!\n\n', '28-06-2016 17:41'),
+(25, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!\n\n', '28-06-2016 17:43'),
+(26, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!\n\n', '28-06-2016 17:43'),
+(27, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!\n\n', '28-06-2016 17:45'),
+(28, 18, 1, 'Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн!\n\n', '28-06-2016 17:46'),
+(31, 139, 1, 'Души живы!', '29-06-2016 07:41'),
+(35, 15, 1, 'абырвалгх!', '29-06-2016 08:40');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `news`
 --
 -- Создание: Июн 22 2016 г., 17:37
@@ -253,7 +291,6 @@ INSERT INTO `news` (`id`, `title`, `date`, `type`, `content`) VALUES
 -- Структура таблицы `orders`
 --
 -- Создание: Июн 22 2016 г., 17:37
--- Последнее обновление: Июн 26 2016 г., 12:06
 --
 
 DROP TABLE IF EXISTS `orders`;
@@ -420,6 +457,14 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `book_id` (`book_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Индексы таблицы `news`
 --
 ALTER TABLE `news`
@@ -471,6 +516,11 @@ ALTER TABLE `books`
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
@@ -504,6 +554,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `books`
   ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`sub_category_id`) REFERENCES `sub_categories` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `orders`

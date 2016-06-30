@@ -146,9 +146,9 @@ class Books {
     
     public static function getTotalBooksBySearchQuery($query) {
         $db = Db::getConnection();
-        $result = $db->query('SELECT count(books.id) as count '
-                . 'FROM books WHERE title = "' . $query . '" or author = "'
-                . $query . '" or year = "' . $query . '" or publisher = "' . $query . '"');
+        $result = $db->query('SELECT count(books.id) as count ' .
+                'FROM books WHERE MATCH (title, author, publisher) ' .
+                'AGAINST ("' . $query . '") or year = "' . $query . '";' );
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
         return $result->fetch()['count'];
@@ -203,16 +203,12 @@ class Books {
     public static function deleteBookById($id) {
         $db = Db::getConnection();
         $result = $db->query('DELETE FROM books WHERE id = ' . $id);
-        
         return $result;
     }
     
     public static function searchBooks($query) {
         $db = Db::getConnection();
         
-//        $result = $db->query('SELECT id, title, author, price, year, publisher '
-//                . 'FROM books WHERE title = "' . $query . '" or author = "'
-//                . $query . '" or year = "' . $query . '" or publisher = "' . $query . '"');
         $result = $db->query('SELECT id, title, author, price, year, publisher ' .
                 'FROM books WHERE MATCH (title, author, publisher) ' .
                 'AGAINST ("' . $query . '") or year = "' . $query . '";' );
@@ -230,4 +226,32 @@ class Books {
         return $booksList;
     }
     
+    public static function addComment($book, $user, $comment, $date) {
+        $db = Db::getConnection();
+        
+        $query = 'INSERT INTO comments (book_id, user_id, comment, date) VALUES (:book, :user, :comment, :date)';
+        $result = $db->prepare($query);
+        $result->bindParam(':book', $book, PDO::PARAM_INT);
+        $result->bindParam(':user', $user, PDO::PARAM_INT);
+        $result->bindParam(':comment', $comment, PDO::PARAM_STR);
+        $result->bindParam(':date', $date, PDO::PARAM_STR);
+        
+        return $result->execute();
+    }
+    
+    public static function getComments($id) {
+        $db = Db::getConnection();
+        $result = $db->query('SELECT * FROM comments WHERE book_id = ' . $id . ' ORDER BY date DESC');
+        
+        $i = 0;
+        $comments = array();
+        while ($row = $result->fetch()) {
+            $comments[$i]['date'] = $row['date'];
+            $comments[$i]['comment'] = $row['comment'];
+//            $comments[$i][''] = $row[''];
+//            $comments[$i][''] = $row[''];
+            $i++;
+        }
+        return $comments;
+    }
 }

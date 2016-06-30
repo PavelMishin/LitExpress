@@ -19,9 +19,24 @@ $subCategory = $book['subCategory'];
                 <span><?php if ($book['availability'] == 1)
                             echo 'В наличии'; else echo 'нет в наличии'; ?></span>
                 <span>Цена: <i><?= $book['price'] ?> р.</i></span><br>
-                <a id ="<?= $book['id'] ?>" onclick="inCart.call(this)">Купить</a>
+                <a href="#" class="buy-btn btn" id ="<?= $book['id'] ?>"> <!--onclick="inCart.call(this)"-->Купить</a>
             </div>
             <p><?= $book['description'] ?></p>
+            
+            <section class="comment-section">
+                <?php if (isset($_SESSION['user'])): ?>
+                <div class="user-id" id="<?= $_SESSION['user'] ?>"></div>
+                <div id="new-comment">
+                    <textarea id="comment" rows="3" placeholder="Введите ваше сообщение" required></textarea>
+                    <a href="#" class="send-btn btn" id="send"> <!--onclick="sendComment.call(this)"-->Отправить комментарий</a>
+                </div>
+                <?php else: ?>
+                <i>Оставлять комментарии могут только зарегистрированные пользователи</i>
+                <?php endif ?>
+                <div class="comments">
+                    <?php include ROOT . '/views/layouts/comments.php'; ?>
+                </div>
+            </section>
         </article>
     </div>
 </main>

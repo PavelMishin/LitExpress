@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/views/css/normalize.min.css">
-  <link rel="stylesheet" href="/views/css/style.css">
+  <link rel="stylesheet" href="/views/css/style.css?<?php time() ?>">
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700&subset=latin,cyrillic">
 </head>
 <body>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="cart">
-          <a href="/cart">Корзина: <span id="count"></span></a>
+          <a href="/cart">Корзина: <span id="count"><?= Cart::countGoods() ?></span></a>
       </div>
       <div class="user">
         <?php if (!isset($_SESSION['user'])): ?>

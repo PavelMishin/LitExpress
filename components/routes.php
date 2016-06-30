@@ -6,6 +6,7 @@ return array(
     'news' => 'news/index',
     
     'catalog/([0-9]+)' => 'catalog/book/$1',
+    'catalog/comment/([0-9]+)/([0-9]+)' => 'catalog/addcomment/$1/$2',
     'catalog/([a-z]+)/([a-z]+)/page-([0-9]+)' => 'catalog/booksbysubcategory/$1/$2/$3',
     'catalog/([a-z]+)/page-([0-9]+)' => 'catalog/booksbycategory/$1/$2',
     'catalog/page-([0-9]+)' => 'catalog/index/$1',
@@ -30,10 +31,10 @@ return array(
     
     'admin/goods/delete/([0-9]+)' => 'admin/deletegoods/$1',
     'admin/goods/update/([0-9]+)' => 'admin/updategoods/$1',
-    'admin/changeOrderStatus/([0-9]+)/([0-9]+)' => 'admin/changeorderstatus/$1/$2',
     'admin/goods/create' => 'admin/creategoods',
     'admin/goods/page-([0-9]+)' => 'admin/goods/$1',
     'admin/goods' => 'admin/goods',
+    'admin/orders/status/([0-9]+)/([0-9]+)' => 'admin/changeorderstatus/$1/$2',
     'admin/orders/update/([0-9]+)' => 'admin/updateorders/$1',
     'admin/orders' => 'admin/orders',
     

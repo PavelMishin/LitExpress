@@ -391,6 +391,10 @@ li:hover > .sub-categories,
     flex-direction: column;
 }
 
+.detail * {
+    margin: 5px;
+}
+
 .book-detail > p {
     text-indent: 16px;
     text-align: justify;
@@ -463,10 +467,54 @@ form[name="capacity-form"] * {
 form[name="capacity-form"] span {
     color: #13708F;
 }
-/*form[name="capacity-form"] input:hover {
-    cursor: pointer;
-}*/
 
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#new-comment textarea{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #13708F;
+    width: min-content;
+}
+
+.send-btn {
+    margin-left: 0;
+}
+
+.btn:hover {
+    border-color: #8DC6D9;
+}
+
+.btn:active {
+    box-shadow: inset 0 0 1px 1px #13708F;
+}
+
+.comment {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin: 25px 0;
+    border-radius: 5px;
+    border: 1px solid #8DC6D9;
+}
+
+.comment span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: smaller;
+    font-style: italic;
+}
 
 /*              FORMS             */
 

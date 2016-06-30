@@ -26,7 +26,7 @@ class Cart {
         if (isset($_SESSION['goods'])) {
             $count = 0;
             foreach ($_SESSION['goods'] as $id => $quantity) {
-                $count = $count + $quantity;
+                $count += $quantity;
             }
             return $count;
         } else {

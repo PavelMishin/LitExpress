@@ -38,7 +38,7 @@
     </div>
   </footer>
 
-<script src="/components/ajax.js"></script>
+<script src="/components/client.js?<?php time() ?>"></script>
 
 </body>
 </html>

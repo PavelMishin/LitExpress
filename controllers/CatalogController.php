@@ -23,7 +23,8 @@ class CatalogController {
         $categories = Categories::getCategoriesList();
         $subCategories = array();
         $subCategories = Categories::getSubCategoriesList();
-        
+        $comments = array();
+        $comments = Books::getComments($id);
         if ($id) {
             $book = Books::getBookById($id);
             
@@ -31,6 +32,18 @@ class CatalogController {
         }
         
         return true;
+    }
+    
+
+    public function actionAddComment($book, $user) {
+        $date = date("d-m-Y H:i", time());
+        if (isset($_POST['comment'])) {
+            $comment = $_POST['comment'];
+            Books::addComment($book, $user, $comment, $date);
+        }
+        $comments = array();
+        $comments = Books::getComments($book);
+        return include(ROOT . '/views/layouts/comments.php');
     }
     
     public function actionBooksBySubCategory($category, $subCategory, $page = 1) {

@@ -26,7 +26,7 @@ for (i = 0; i < show.length; i++) {
         var id = this.id.substr(7);
             val = this.value;
             xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "/admin/changeOrderStatus/" + id + "/" + val, true);
+        xhttp.open("POST", "/admin/orders/status/" + id + "/" + val, true);
         xhttp.send();
     });
 }

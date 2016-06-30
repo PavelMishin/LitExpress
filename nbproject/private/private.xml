@@ -12,12 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/vkr/controllers/CabinetController.php</file>
-            <file>file:/C:/xampp/htdocs/vkr/models/User.php</file>
-            <file>file:/C:/xampp/htdocs/vkr/views/cabinet.php</file>
+            <file>file:/C:/xampp/htdocs/vkr/models/Books.php</file>
+            <file>file:/C:/xampp/htdocs/vkr/controllers/CatalogController.php</file>
             <file>file:/C:/xampp/htdocs/vkr/views/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/vkr/controllers/UserController.php</file>
-            <file>file:/C:/xampp/htdocs/vkr/controllers/AdminController.php</file>
+            <file>file:/C:/xampp/htdocs/vkr/views/book.php</file>
+            <file>file:/C:/xampp/htdocs/vkr/views/layouts/comments.php</file>
+            <file>file:/C:/xampp/htdocs/vkr/components/admin.js</file>
+            <file>file:/C:/xampp/htdocs/vkr/views/catalog.php</file>
+            <file>file:/C:/xampp/htdocs/vkr/components/client.js</file>
         </group>
     </open-files>
 </project-private>

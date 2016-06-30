@@ -15,7 +15,7 @@
                 </a>
                 <div class="in-cart">
                     <span><?= $book['price'] ?> р.</span>
-                    <a href="#" id ="<?= $book['id'] ?>" onclick="inCart.call(this)">В корзину</a>
+                    <a href="#" class="buy-btn" id ="<?= $book['id'] ?>"> <!--onclick="inCart.call(this)"-->В корзину</a>
                 </div>
                 
             </article>
